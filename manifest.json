@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Urban Housing Laws Reference",
+  "version": "1.0.0",
+  "description": "Quick reference for housing and rent laws on Zillow listings in major US cities",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.zillow.com/*",
+    "https://zillow.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Urban Housing Laws"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.zillow.com/*", "https://zillow.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Housing Laws</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏘️ NYC Housing Laws</h1>
+            <p class="subtitle">Tenant rights & protections</p>
+        </header>
+
+        <!-- Location Display -->
+        <div class="location-section" id="locationSection">
+            <div class="location-display">
+                <div class="location-info">
+                    <span id="locationText" class="location-text">🔍 Detecting location...</span>
+                    <span class="location-hint" id="locationHint"></span>
+                </div>
+                <button id="changeLocation" class="change-btn">Edit</button>
+            </div>
+        </div>
+
+        <!-- Manual Location Input (Hidden by default) -->
+        <div class="location-input-section" id="inputSection" style="display: none;">
+            <div class="input-group">
+                <input type="text" id="cityInput" placeholder="City, State (e.g., 'New York, NY')" class="city-input">
+                <button id="submitLocation" class="submit-btn">Search</button>
+            </div>
+            <div class="input-help">Currently only NYC data available. Try: "New York, NY"</div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content" id="content">
+            <div class="spinner"></div>
+            <p class="loading-text">Loading laws...</p>
+        </div>
+
+        <!-- No Data Message -->
+        <div id="noDataMessage" style="display: none;" class="no-data">
+            <p class="no-data-title">📋 Coming Soon</p>
+            <p>We currently focus on <strong>New York City</strong></p>
+            <p class="small">Try searching: "New York, NY"</p>
+            <p class="small-hint">More cities coming soon!</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="disclaimer">⚠️ <strong>Not legal advice.</strong> For specific situations, consult a qualified attorney. Contact legal aid: <strong>311</strong> or visit <strong>CJAB.org</strong></p>
+        </footer>
+    </div>
+
+    <script src="laws-database.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

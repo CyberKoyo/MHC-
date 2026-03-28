@@ -1,0 +1,376 @@
+/* popup.css - NYC Housing Laws Extension */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    width: 550px;
+    max-height: 750px;
+    overflow-y: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 4px solid #1e3a8a;
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.subtitle {
+    font-size: 11px;
+    opacity: 0.92;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Location Section */
+.location-section {
+    background: white;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.location-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.location-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.location-text {
+    font-weight: 600;
+    color: #1e3a8a;
+    font-size: 14px;
+}
+
+.location-hint {
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.change-btn {
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.change-btn:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.change-btn:active {
+    background: #d1d5db;
+}
+
+/* Location Input Section */
+.location-input-section {
+    background: #f9fafb;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.city-input {
+    flex: 1;
+    padding: 9px 12px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 13px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.city-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.city-input::placeholder {
+    color: #9ca3af;
+}
+
+.submit-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #2563eb;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:active {
+    background: #1d4ed8;
+}
+
+.input-help {
+    font-size: 11px;
+    color: #6b7280;
+    text-align: center;
+    padding: 0 4px;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+}
+
+.loading-text {
+    text-align: center;
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.law-section {
+    background: white;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 4px solid #3b82f6;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.law-section:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.law-section.rent {
+    border-left-color: #10b981;
+}
+
+.law-section.habitability {
+    border-left-color: #f59e0b;
+}
+
+.law-section.fair {
+    border-left-color: #ef4444;
+}
+
+.law-section.lt-rights {
+    border-left-color: #8b5cf6;
+}
+
+.law-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #1f2937;
+    user-select: none;
+}
+
+.expand-toggle {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    color: #6b7280;
+}
+
+.law-section.expanded .expand-toggle {
+    transform: rotate(90deg);
+}
+
+.law-summary {
+    font-size: 12px;
+    color: #4b5563;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.law-details {
+    display: none;
+    font-size: 12px;
+    line-height: 1.65;
+    color: #555;
+}
+
+.law-section.expanded .law-details {
+    display: block;
+}
+
+.law-details li {
+    margin-left: 18px;
+    margin-bottom: 10px;
+}
+
+.law-details strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.notes {
+    background: #fef3c7;
+    border-left: 3px solid #f59e0b;
+    padding: 12px;
+    margin-top: 14px;
+    border-radius: 5px;
+    font-size: 11px;
+    color: #78350f;
+    line-height: 1.6;
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid #e5e7eb;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* No Data Message */
+.no-data {
+    background: white;
+    border-radius: 8px;
+    padding: 28px 20px;
+    text-align: center;
+    margin: 20px;
+    color: #6b7280;
+}
+
+.no-data-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.no-data p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.no-data .small {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.small-hint {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 12px;
+}
+
+/* Footer */
+.footer {
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.disclaimer {
+    color: #6b7280;
+}
+
+/* Scrollbar Styling */
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+    
+    .header h1 {
+        font-size: 19px;
+    }
+    
+    .law-title {
+        font-size: 13px;
+    }
+    
+    .law-summary {
+        font-size: 11px;
+    }
+    
+    .law-details {
+        font-size: 11px;
+    }
+}
