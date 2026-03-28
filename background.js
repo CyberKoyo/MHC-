@@ -10,6 +10,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         });
     }
 });
+// delete this comment
 
 // Clean up old storage if needed
 chrome.storage.local.onChanged.addListener((changes, namespace) => {
